@@ -125,4 +125,3 @@ for(var objeto of ferramentas){
 
 
 
-//ECMASCRIPT6 - LIVRO parou pagina 19
