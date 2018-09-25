@@ -12,8 +12,7 @@ function calculaArea(b, h) {
 	var area = b * h;
 	return area;
 }
-
-console.log(calculaArea(15, 3));
+console.log(calculaArea(15, 3)); // 45
 
 //Retornando array
 function calculaRetangulo(b, h) {
@@ -21,7 +20,6 @@ function calculaRetangulo(b, h) {
 	var perimetro = (b + h) * 2;
 	return [area, perimetro];
 }
-
 console.log(calculaRetangulo(15, 3)); // [ 45, 36 ]
 
 //Retornando Objeto
