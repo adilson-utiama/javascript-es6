@@ -94,5 +94,45 @@ console.log(typeof 'string'); // string
 
 
 
+//ES6 
 
-console.log(obj);
+//**HOISTING = Comportamento de mover declarações para o topo de um escopo (global ou não)
+// onde podemos utilizar uma variavel ou funcao antes mesmo de declara-las
+//Porem mesmo se você usar ou referir a variável e depois declará-la e inicializá-la, ela ainda retornará undefined
+//mas não lançara erros
+
+
+// LET
+// { tem escopo de bloco mais proximo sem incidencia do **HOISTING }
+
+var variavel = 23456;
+//let variavel = 'string';  //SyntaxError: Identifier 'variavel' has already been declared
+
+let v1;
+v1 = 123;  //OK
+console.log(v1);
+
+if (true) {
+  let y = 5;
+}
+//console.log(y);  // ReferenceError: y is not defined
+
+
+// CONST
+// Uma constante não pode alterar seu valor por meio de uma atribuição ou 
+// ao ser declarada novamente enquanto o script é executado.
+// Deve ser inicializada com um valor
+// As regras de escopo para as constantes são as mesmas para as váriaveis let
+
+// const constante; // SyntaxError: Missing initializer in const declaration
+
+const constante2 = 1235; // OK 
+
+// constante2 = 5698; // TypeError: Assignment to constant variable.
+
+// Você não pode declarar uma constante
+// com o mesmo nome de uma função ou variável que estão no mesmo escopo
+// Isto irá causar um  erro
+
+function f() {};
+// const f = 5; //SyntaxError: Identifier 'f' has already been declared
