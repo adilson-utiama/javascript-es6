@@ -17,3 +17,66 @@ console.log(string.split(' ')); //split(separador, limite) -> criar array de sub
 console.log(string.toLowerCase());// retorna uma nova string com todos os caracteres em caixa BAIXA
 console.log(string.toUpperCase());// retorna uma nova string com todos os caracteres em caixa ALTA
 
+
+//ES6
+
+//TEMPLATE STRINGS - continua no livro
+
+//SIMPLES (Interpolação de strings)
+let nome = 'Wilson';
+console.log(`Bem-Vindo, ${nome}`); //Uso de crase no lugar de aspas simples - ${variavel}
+
+let n1 = 1, n2 = 2;
+console.log(`${n1} + ${n2} = ${n1 + n2}`); //podemos inserir expressoes dentro delas
+// 1 + 2 = 3
+
+console.log(`
+	Mensagem 
+	com 
+	quebra
+	de
+	Linha`); 
+
+//	Mensagem 
+//	com 
+//	quebra
+//	de
+//	Linha
+
+//neste caso Ideal para podermos construir HTML, sem necessidade de usr \n, \r
+let idade = 18;
+let endereco = 'Av. Paulista, 1000'
+const div =
+	`
+	<div>
+		<p>Nome: ${nome}</p>
+		<p>Idade: ${idade}</p>
+		<p><Endereço: ${endereco}/p>
+	</div>
+	`;
+console.log(div);
+
+
+//TEMPLATE STRING MARCADO
+
+//Exemplo - Mensagem muda de acordo com o horario
+const horas = new Date().getHours();
+
+const mensagem = defineMensagem`${''}${horas} horas`; //marcado com nome do metodo - sem parenteses
+
+
+//Tendo acesso as strings e aos valores, podemos manipular os dados
+function defineMensagem(strings, ...values) {
+	const hora = values[1];
+	if( hora >= 6 && hora <= 12 ) {
+		values[0] = 'Bom Dia';
+	} else if( hora > 12 && hora <= 18 ) {
+		values[0] = 'Boa Tarde';
+	} else {
+		values[0] = 'Boa Noite';
+	}
+
+	values[0] = `${values[0]}, são `;
+	return `${values[0]}${strings[0]}${hora}${strings[2]}`
+}
+console.log(mensagem);
