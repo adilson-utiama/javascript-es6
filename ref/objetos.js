@@ -116,3 +116,66 @@ let exp = new Number(17.96124);
 console.log(exp.toExponential(1)); // 1.8e+1
 console.log(exp.toExponential(2)); // 1.80e+1
 console.log(exp.toExponential(8)); // 1.79612400e+1
+
+
+
+// Objeto Date
+// objeto para manipulacao de data e horas
+
+//Construtores
+let agora = new Date(); // sem argumentos, constroi objeto com data atual
+console.log(agora); //Exemplo saida: 2018-10-02T01:58:06.942Z
+
+let futuro = new Date(2678695858415); // millisegundos, constroi data baseado em millisegundos
+console.log(futuro); // 2054-11-19T10:10:58.415Z
+
+let data_string = new Date('2018/10/02 10:59:20'); // data formatada, costroi a partir de data formatada
+console.log(data_string); //2018-10-02T13:59:20.000Z
+//=========================================
+// dd   - Dia do mes de 01 a 31           =
+// MM   - Mes do ano de 01 a 12           =
+// MMM  - Abreviatura do mes              =
+// MMMM - Nome completo do mes            =
+// aaaa - Anno com quatro digitos         =
+// hh:min:seg - Horas, minutos e segundos =
+//=========================================
+
+//Padroes aceitos
+// MM-dd-aaaa hh:min:seg
+// aaaa/MM/dd hh:min:seg
+// MM/dd/aaaa hh:min:seg
+// MMM dd, aaaa hh:min:seg
+// MMMM dd, aaaa hh:min:seg
+
+let dataArgumentos = new Date(2014, 6, 20, 4, 40, 36, 2000); // args: ano, mes, dia, hora, minuto, millisegundos
+console.log(dataArgumentos); // 2014-07-20T07:40:38.000Z
+
+
+//METODOS
+let dataMetodos = new Date();
+console.log(dataMetodos.getDay()); // retorna dia da data
+console.log(dataMetodos.getFullYear()); // retorna ano com quatro digitos
+console.log(dataMetodos.getHours()); // retorna a hora da data
+console.log(dataMetodos.getMilliseconds()); // retorna millisegundos
+console.log(dataMetodos.getMinutes()); // retorna minutos
+console.log(dataMetodos.getMonth()); // retorna mes - OBS: meses de 0 a 11
+console.log(dataMetodos.getSeconds()); // retorna os segundos
+console.log(dataMetodos.getTime()); // retorna data em millisegundos
+console.log(dataMetodos.getUTCDate()); // dia do mes em horario GMT
+console.log(dataMetodos.getUTCDay()); // dia da seman em horario GMT
+console.log(dataMetodos.getUTCFullYear()); // ano quatro digitos em horario GMT
+console.log(dataMetodos.getUTCHours()); // hora em GMT
+console.log(dataMetodos.getUTCMinutes()); // minutos GMT
+console.log(dataMetodos.getUTCHours()); // hora GMT
+console.log(dataMetodos.getUTCSeconds()); // segundos GMT
+
+//os setters apenas substituir get por set
+//EX: setDay(2)
+
+console.log(dataMetodos.toDateString()); // retorna apenas data // Mon Oct 01 2018
+console.log(dataMetodos.toLocaleDateString()); //saida -> 2018-10-1
+console.log(dataMetodos.toTimeString()); // saida ->  23:38:41 GMT-0300 (Hora oficial do Brasil)
+console.log(dataMetodos.toLocaleTimeString()); // saida -> 23:39:18
+console.log(dataMetodos.toString()); // saida -> Mon Oct 01 2018 23:39:43 GMT-0300 (Hora oficial do Brasil)
+console.log(dataMetodos.toUTCString()); //saida -> Tue, 02 Oct 2018 02:40:14 GMT
+console.log(dataMetodos.toGMTString());
