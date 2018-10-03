@@ -6,6 +6,8 @@ livro.autor = 'Mauricio Samy Silva';
 livro.paginas = 432;
 
 //SINTAXE LITERAL
+// mantem estado estatico
+// 
 var livro2 = {
 	'titulo' : 'Javascript ES6',
 	'autor' : 'Desconhecido',
@@ -178,4 +180,64 @@ console.log(dataMetodos.toTimeString()); // saida ->  23:38:41 GMT-0300 (Hora of
 console.log(dataMetodos.toLocaleTimeString()); // saida -> 23:39:18
 console.log(dataMetodos.toString()); // saida -> Mon Oct 01 2018 23:39:43 GMT-0300 (Hora oficial do Brasil)
 console.log(dataMetodos.toUTCString()); //saida -> Tue, 02 Oct 2018 02:40:14 GMT
-console.log(dataMetodos.toGMTString());
+console.log(dataMetodos.toGMTString()); // saida -> Tue, 02 Oct 2018 02:41:00 GMT
+
+
+
+
+//ES6
+
+//Declaracao de propriedades
+// O interpretador ja associa o nome da propriedade com a variavel de mesmo nome dentro de seu escopo
+
+let name = 'Maria';
+let lastname = 'Madalena';
+
+var pessoa = {
+	nome : name,
+	sobrenome : lastname
+}
+console.log(pessoa.nome);
+
+
+//Indices de propriedades
+//Passamos o nome da propriedade do objeto como sendo
+//equivalente ao valor atribuido a variavel nomeMetodo
+//podemos tambem concatenar ou avaliar dentro dos colchetes [] 
+//o resultado da expressao como chave daquela propriedade
+const nomeFuncao = 'mostrar';
+const propriedade = 'Nome';
+
+const objeto = {
+	Nome : 'Objeto',
+	[ `${nomeFuncao}${propriedade}` ]() { // <- []
+		console.log(this[propriedade]);
+	}
+}
+
+objeto.mostrarNome(); // Objeto
+
+// funciona tambem com prorpiedades que nao sao metodos
+
+const apelido = 'apelido';
+const pessoa2 = {
+	nome : 'Pedro',
+	[apelido] : 'Pedrinho'
+} 
+
+console.log(pessoa2[apelido]); //Pedrinho
+
+
+//JSON
+//Objetos para json
+
+let carro = {
+	marca : 'Toyota',
+	modelo : 'Corolla XRS',
+	motor : '2.0 L Dual VVT-i 16 V DOHC Flex',
+	cor: 'preta'
+}
+
+const dadosJson = JSON.stringify(carro);
+
+console.log(dadosJson);
