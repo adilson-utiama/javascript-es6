@@ -230,6 +230,9 @@ console.log(pessoa2[apelido]); //Pedrinho
 
 //JSON
 //Objetos para json
+// Todas as chaves precisam estar entre aspas
+// Strings precisam estar sempre entre aspas duplas
+// Valores não podem ser uma Função
 
 let carro = {
 	marca : 'Toyota',
@@ -240,4 +243,4 @@ let carro = {
 
 const dadosJson = JSON.stringify(carro);
 
-console.log(dadosJson);
+console.log(dadosJson); // {"marca":"Toyota","modelo":"Corolla XRS","motor":"2.0 L Dual VVT-i 16 V DOHC Flex","cor":"preta"}

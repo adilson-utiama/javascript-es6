@@ -129,3 +129,60 @@ const equipe4 = {
 	}
 }
 equipe4.membrosDaEquipe();
+
+
+//ATRIBUINDO VALORES PADROES
+// Podemos definir um valor padrao, caso nao venha ser informado
+
+function imprimeNome(nome, sobrenome, nomeDoMeio = '') {
+	console.log(` ${nome} ${nomeDoMeio} ${sobrenome} `)
+} 
+imprimeNome('Wilson', 'Silva'); // Wilson Silva
+imprimeNome('Wilson', 'Silva', 'Guedes'); // Wilson Guedes Silva
+
+//Referencia para outros valores padroes
+function calculaPotencia(x = 2, y = x) {  //<= aqui o parametro 'y' referencia 'x'
+	console.log(Math.pow(x,y));
+}
+calculaPotencia(); // 4
+calculaPotencia(2); // 4
+calculaPotencia(2,2); // 4
+
+
+//Referencia para variaveis externas
+//contudo e necessario cautela, poi dependendo do escopo em que se encontra a variavel, podemos ganhar um erro
+let v = 'valor 1';
+function funcao(x = v) {
+	console.log(x);
+}
+funcao(); //valor 1
+
+//let v2 = 'valor 1';
+//function funcao(x = v2) {
+//	let v2 = 'valor 2';
+//	console.log(x);
+//}
+//funcao(); // v2 is not defined
+
+//Utilizando funcoes como valores padroes
+function facaAlgo(nome, callback = z => {  //<- arrow function
+	console.log(z);
+}) {
+	callback(nome);
+}
+
+facaAlgo('Nome'); // Nome
+
+
+//Parametros Obrigatorios - DICA
+
+function parametroObrigatorio(parametro) {
+	throw new Error(` O parametro "${parametro}" é obrigatorio.`);
+}
+
+function inserirNaTela(objeto = parametroObrigatorio('objeto')) {
+	//Faz algo
+}
+//Se nao informarmos algum parametro, retornara erro
+//inserirNaTela(); //Error:  O parametro "objeto" é obrigatorio.
+
