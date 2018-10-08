@@ -186,3 +186,91 @@ function inserirNaTela(objeto = parametroObrigatorio('objeto')) {
 //Se nao informarmos algum parametro, retornara erro
 //inserirNaTela(); //Error:  O parametro "objeto" é obrigatorio.
 
+
+//ARGUMENTS X REST OPERATORS
+
+//Exemplo arguments
+//A partir do objeto 'arguments' podemos pegar os valores passados como parametro
+//Embora similar a um Array, NAO É um Array , logo nao ppodemos utilizar metodos auxiliares de um Array
+function somar(){
+	let total = 0;
+	for(let i =0; i < arguments.length; i++){
+		total += arguments[i];
+	}
+	return total;
+}
+console.log(somar(1,2,3,4,5)); // 15
+
+//Exemplo Rest operator
+// na assinatura do metodo usamos '...' para representar uma quantidade indefinida de parametros
+//Diferente do exemplo usando arguments, aqui é o objeto é um Array
+function somar2(... valores){
+	return valores.reduce((soma, valor) => {
+		return soma + valor;
+	}, 0);
+}
+console.log(somar2(1,2,3,4,5)); // 15
+
+// function s(){
+// 	return arguments.reduce((soma, valor) => {  //TypeError: arguments.reduce is not a function
+// 		return soma + valor;
+// 	}, 0);
+// }
+
+
+//SPREAD OPERATORS
+//Embora similar ao rest operator, com o spread é diferente
+//O operador Spread permite que uma expressao seja expandida onde multiplos parametros
+//sao espeados enquanto que no operador rest NAO 
+const argumentos = [1,2,3];
+
+console.log(argumentos); // [1,2,3]
+console.log.apply(console, argumentos); // 1,2,3 // ES5 metodo .apply, recebe dois parametros, o primeiro o contexto de execucao
+// o segundo um array que representa os argumentos
+
+//Exemplo do Spread Operator
+console.log(...argumentos); // 1,2,3
+
+//Exemplo 2
+const lista1 = ['arroz', 'feijao', 'ervilhas'];
+const lista2 = ['leite', 'ovos'];
+const lista3 = ['batata', 'cenoura', 'mandioquinha'];
+
+//com spread
+const compras = [ ...lista1, ...lista2, ...lista3 ];
+console.log(compras);
+// [ 'arroz',
+//   'feijao',
+//   'ervilhas',
+//   'leite',
+//   'ovos',
+//   'batata',
+//   'cenoura',
+//   'mandioquinha' ]
+
+//sem spread
+const compras2 = [ lista1, lista2, lista3 ];
+console.log(compras2);
+// [ [ 'arroz', 'feijao', 'ervilhas' ],
+//   [ 'leite', 'ovos' ],
+//   [ 'batata', 'cenoura', 'mandioquinha' ] ]
+
+
+//Exemplo 3
+//Adicionando elementos a outro array
+const produtoSelecionado = {
+	descriao : 'Blusa de La',
+	preco : 'R$ 59,90'
+}
+
+const carrinho = [
+	{ descricao : 'Bota de cano medio', preco : 'R$ 15,00'},
+	{ descricao : 'Saia Colorida', preco : 'R$ 25,00'}];
+
+
+const carrinhoAtualizado = [ ...carrinho, produtoSelecionado];
+
+console.log(carrinhoAtualizado);
+// [ { descricao: 'Bota de cano medio', preco: 'R$ 15,00' },
+//   { descricao: 'Saia Colorida', preco: 'R$ 25,00' },
+//   { descriao: 'Blusa de La', preco: 'R$ 59,90' } ]
